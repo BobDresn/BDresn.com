@@ -1,93 +1,33 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <title>Robert Dresner</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!--Stylesheets-->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    
-
-    <!--HTMX-->
-    <script src="css/assets/htmx.min.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Robert Dresner's ExplainQuest development journal. Planning, backend engineering, and database design for a capstone learning application.">
+<meta name="theme-color" content="#142b36">
+<title>ExplainQuest — Robert Dresner's Development Journal</title>
+<style>
+:root{--paper:#f6f4ee;--ink:#172f39;--muted:#52676d;--line:#d4dcd7;--green:#126c5b;--light:#e5ece5;--white:#fffefa;--mono:ui-monospace,SFMono-Regular,Consolas,monospace;--serif:Georgia,'Times New Roman',serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:30px}body{margin:0;background:var(--paper);color:var(--ink);font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.65}a{color:inherit;text-underline-offset:5px}a:hover{color:var(--green)}a:focus-visible,summary:focus-visible{outline:3px solid #c87b24;outline-offset:6px}.skip{position:absolute;left:15px;top:-100px;background:white;padding:10px;z-index:5}.skip:focus{top:10px}.wrap{max-width:1160px;margin:auto;padding:0 36px}header{border-bottom:1px solid var(--line)}.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:96px}.brand{text-decoration:none;font-weight:750;letter-spacing:-.7px;font-size:23px;display:flex;align-items:center;gap:12px}.mark{background:var(--ink);color:white;display:grid;place-items:center;width:38px;height:38px;border-radius:7px;font:600 17px var(--mono)}nav{display:flex;gap:28px;font-size:14px}nav a{text-decoration:none}.eyebrow{font:12px var(--mono);text-transform:uppercase;letter-spacing:1.5px;color:var(--green)}.hero{padding:66px 0 62px;display:grid;grid-template-columns:1.35fr 1fr;gap:60px;align-items:center}h1{font:normal clamp(46px,5.4vw,70px)/1.08 var(--serif);letter-spacing:-2px;margin:22px 0}h1 em{color:var(--green);font-weight:normal}.intro{font-size:18px;color:var(--muted);max-width:540px}.jump{display:inline-flex;text-decoration:none;background:var(--ink);color:white;padding:11px 20px;margin-top:15px;font-size:14px;gap:34px;border-radius:3px}.jump:hover{background:var(--green);color:white}.architecture{background:var(--ink);color:#e8f1eb;padding:28px;border-radius:5px;box-shadow:12px 12px 0 #e0e7de}.architecture .eyebrow{color:#a6c9b7}.arch-head{display:flex;justify-content:space-between;border-bottom:1px solid #3c5159;padding-bottom:19px;margin-bottom:23px}.arch-tag{font:11px var(--mono);color:#b3c5c8}.schema{border:1px solid #50676b;padding:13px 16px;margin:10px 0;background:#1e3943}.schema b{font:600 14px var(--mono);color:#d6e9dd}.schema span{display:block;color:#a9bec2;font:12px/1.7 var(--mono);margin-top:6px}.connector{font:12px var(--mono);color:#b7d1c3;padding-left:18px}.arch-note{font-size:12px;color:#b4c6c8;margin:19px 0 0}.band{padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;font:12px var(--mono);color:var(--muted)}.band strong{color:var(--ink);font-weight:600}.content{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:62px;padding:56px 0 70px}.section-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:28px}h2{font:normal 32px/1.2 var(--serif);margin:0}.count{font:12px var(--mono);color:var(--muted)}article{background:var(--white);border:1px solid var(--line);padding:34px}.post-meta{font:11px var(--mono);color:var(--muted);display:flex;flex-wrap:wrap;gap:13px;align-items:center}.pill{background:var(--light);color:var(--green);padding:4px 8px;border-radius:3px}h3{font:normal 32px/1.2 var(--serif);letter-spacing:-.5px;margin:23px 0 18px}article p{font-size:16px;color:#354d57}h4{font-size:16px;margin:26px 0 8px}article ul{padding-left:21px;color:#354d57}article li{padding:4px 0}details{margin-top:25px;border-top:1px solid var(--line);padding-top:18px}summary{cursor:pointer;font-size:14px;font-weight:650;color:var(--green)}.post-end{margin-top:29px;padding-top:18px;border-top:1px solid var(--line);font:12px var(--mono);color:var(--muted)}aside section{border-top:2px solid var(--ink);padding-top:20px;margin-bottom:34px}aside h2{font-size:25px}aside p{font-size:14px;color:var(--muted)}.initials{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:#dbe5dc;color:var(--green);font:18px var(--serif);margin:20px 0 12px}.name{font-size:16px;font-weight:650}.role{font-size:13px;line-height:1.6;color:var(--muted);margin-top:5px}.focus{list-style:none;margin:18px 0 0;padding:0}.focus li{border-bottom:1px solid var(--line);padding:12px 0;font-size:14px;display:flex;gap:13px}.focus span{font:12px var(--mono);color:var(--green);padding-top:4px}.project{border-top:1px solid var(--line);padding:48px 0 55px;display:grid;grid-template-columns:1fr 1.5fr;gap:60px}.project p{color:var(--muted);margin-top:0}.project h2{margin-top:14px}.stack{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}.stack span{font:12px var(--mono);border:1px solid var(--line);padding:7px 10px}footer{background:var(--ink);color:#d5e0dc;padding:25px 0;font-size:12px}.foot{display:flex;justify-content:space-between;gap:20px}footer a:hover{color:white}.future{margin:26px 0 0;padding:19px 0;border-bottom:1px solid var(--line)}.future p{color:var(--muted);font-size:14px;margin:6px 0}.future strong{font-size:14px}
+@media(max-width:900px){.hero{gap:32px;grid-template-columns:1.1fr 1fr}.content{gap:30px;grid-template-columns:minmax(0,1fr) 225px}article{padding:25px}.wrap{padding:0 24px}}
+@media(max-width:680px){.nav{min-height:82px;align-items:flex-start;padding:20px 0;flex-direction:column;gap:12px}nav{gap:24px}.hero{grid-template-columns:1fr;padding:39px 0 40px;gap:30px}h1{font-size:48px;letter-spacing:-1.5px}.architecture{box-shadow:6px 6px 0 #e0e7de;padding:22px}.band{flex-direction:column;gap:6px}.content{grid-template-columns:1fr;padding:35px 0;gap:35px}article{padding:22px}h3{font-size:29px}.project{grid-template-columns:1fr;gap:22px;padding:35px 0}.foot{flex-direction:column;gap:8px}.wrap{padding:0 20px}.section-top h2{font-size:29px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{header nav,.jump,footer,.skip{display:none}.hero,.content,.project{display:block}.architecture,aside{display:none}body{background:white}article{border:0;padding:0}.wrap{padding:0}details{display:block}}
+</style>
 </head>
-
-<body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Bob's Portfolio</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Portfolio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
-                    <li class="nav-item"></li>
-                        <a class="nav-link" href="#">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!--Landing Page-->
-    <div class="landing text-light">
-        <h1 class="header">Hi! I'm Bob.</h1>
-        <div class="content text-left text-light">
-            
-            <h4>A little about me</h4>
-            <p> 
-                I am currently an active duty Marine learning everything I can about programming. I have 
-                some experience with all major languages such as Python, Java, C#, C++, Rust, and most
-                recently Golang. By far my favorite to work with has been Go. 
-            </p>
-            <p>
-                If you would like the shortened version, here is my <a href="#">resume</a>.
-            </p>
-            <p>
-                Transitioning away from the Marine Corps has given me the chance to make the choice I couldn't 
-                commit to when I started college. 
-
-            </p>
-            <div class="row home justify-content-center px-md-5 px-lg-0">
-                <div class="col-3 col-sm-2 col-lg-1 p-0">
-                    <a href="https://github.com/BobDresn?tab=repositories" target="_blank">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
-                            <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34c-.46-1.16-1.11-1.47-1.11-1.47c-.91-.62.07-.6.07-.6c1 .07 1.53 1.03 1.53 1.03c.87 1.52 2.34 1.07 2.91.83c.09-.65.35-1.09.63-1.34c-2.22-.25-4.55-1.11-4.55-4.92c0-1.11.38-2 1.03-2.71c-.1-.25-.45-1.29.1-2.64c0 0 .84-.27 2.75 1.02c.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02c.55 1.35.2 2.39.1 2.64c.65.71 1.03 1.6 1.03 2.71c0 3.82-2.34 4.66-4.57 4.91c.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/>
-                        </svg>
-                    </a>
-                    
-                    <a href="https://www.linkedin.com/in/bobdresner/" target="_blank">
-                        <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="icon-stack icon-front" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
-                            <path fill="black" d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1M8.339 18.337H5.667v-8.59h2.672zM7.003 8.574a1.548 1.548 0 1 1 0-3.096a1.548 1.548 0 0 1 0 3.096m11.335 9.763h-2.669V14.16c0-.996-.018-2.277-1.388-2.277c-1.39 0-1.601 1.086-1.601 2.207v4.248h-2.667v-8.59h2.56v1.174h.037c.355-.675 1.227-1.387 2.524-1.387c2.704 0 3.203 1.778 3.203 4.092v4.71z"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!--Bio-->
-    <div class="bio">
-        .
-    </div>
-
-    <!-- Footer -->
-    <footer class="bg-dark text-white text-center py-3 mt-5">
-        &copy; 2025 BDres Portfolio. All rights reserved.
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<body id="top">
+<a class="skip" href="#journal">Skip to journal</a>
+<header><div class="wrap nav"><a class="brand" href="#top"><span class="mark" aria-hidden="true">eq</span>ExplainQuest<span style="font-weight:400;color:var(--muted)">/ devlog</span></a><nav aria-label="Main navigation"><a href="#journal">Journal</a><a href="#project">The project</a><a href="#about">About me</a></nav></div></header>
+<main class="wrap">
+<section class="hero" aria-labelledby="page-title"><div><div class="eyebrow">Robert Dresner · Capstone journal</div><h1>Behind the scenes.<br><em>Under the hood.</em></h1><p class="intro">Building the systems behind ExplainQuest. A development journal about backend logic, database decisions, and the lessons along the way.</p><a class="jump" href="#week-01">Read the first entry <span aria-hidden="true">↘</span></a></div>
+<div class="architecture" role="img" aria-label="Conceptual data flow: a study topic contains reference notes; an explanation attempt belongs to a topic; feedback belongs to an attempt. This is a planning sketch, not a final database schema."><div class="arch-head"><span class="eyebrow">Thinking in relationships</span><span class="arch-tag">PLANNING SKETCH</span></div><div class="schema"><b>study_topic</b><span>id · title · reference_notes</span></div><div class="connector">↓ one topic, many attempts</div><div class="schema"><b>explanation_attempt</b><span>id · topic_id · explanation</span></div><div class="connector">↓ feedback for each attempt</div><div class="schema"><b>feedback</b><span>attempt_id · strengths · gaps</span></div><p class="arch-note">An early concept for how learning history could fit together.</p></div></section>
+<div class="band"><span>PROJECT <strong>ExplainQuest</strong></span><span>FOCUS <strong>Backend / Database</strong></span><span>PHASE <strong>Planning</strong></span></div>
+<div class="content"><section id="journal" aria-labelledby="journal-title"><div class="section-top"><h2 id="journal-title">Development journal</h2><span class="count">01 entry</span></div>
+<!-- ADD NEW POSTS HERE: Copy the article below, give it a unique id, and replace its date and content. Update the entry count above. -->
+<article id="week-01"><div class="post-meta"><span class="pill">WEEK 01</span><time datetime="2026-11-03">November 3, 2026</time><span>Planning & direction</span></div><h3>Getting started with ExplainQuest</h3><p>For this capstone, I’ll be working on ExplainQuest, a learning application built around explaining a topic in your own words. Students provide reference notes, submit an explanation, and receive AI feedback and follow-up questions to help them identify gaps in their understanding.</p><p>I expect to work on either backend programming or the database. My exact responsibilities are still being decided. This journal will document the decisions I contribute to, problems I work through, and what I learn as the project develops.</p><h4>Where I want to contribute</h4><p>My interest is in how information moves through the application and how it stays organized. A study session involves more than one answer: it can include reference notes, feedback, follow-up questions, and revised explanations. Keeping that history connected will be an important part of the experience.</p><h4>My initial questions</h4><ul><li>How should topics, explanation attempts, and feedback relate to each other?</li><li>What should the backend validate before accepting a submission?</li><li>How can a student return to a previous attempt and understand their progress?</li><li>What should happen if a feedback request fails or is submitted twice?</li></ul><details><summary>Read my next steps</summary><p>First, I want to confirm my role with the team and review the proposed technology stack. The pitch discussed Next.js, TypeScript, Supabase, and the OpenAI Responses API. Those are the proposed tools; the team still needs to agree on the implementation.</p><p>If I take the database role, my first focus will be identifying the records we need, sketching their relationships, and discussing access rules. If I take the backend role, I’ll focus on the submission workflow, validation, and saving results consistently.</p><p>For the next journal entry, I plan to include a concrete design or implementation decision, explain why it was made, and describe how I checked it. At this stage, these are plans rather than completed development work.</p></details><div class="post-end">Robert Dresner · Backend / Database</div></article>
+<div class="future"><div class="eyebrow">Next in the journal</div><p><strong>From project pitch to technical plan.</strong><br>Role confirmation, data relationships, and the first implementation priorities.</p></div>
+</section><aside><section id="about"><div class="eyebrow">The developer</div><div class="initials" aria-hidden="true">RD</div><div class="name">Robert Dresner</div><div class="role">Backend / Database<br>Role assignment pending</div><p>Computer science student with a background in automation and software development. I enjoy practical systems, clear logic, and understanding how the pieces work together.</p><p>This is my personal development journal for the ExplainQuest capstone project.</p></section><section><h2>Areas of focus</h2><ol class="focus"><li><span>01</span>Data models & relationships</li><li><span>02</span>Backend request handling</li><li><span>03</span>Validation & access rules</li><li><span>04</span>Testing & reliability</li></ol></section><section><div class="eyebrow">Current checkpoint</div><p>Confirm responsibilities with the team, then turn the proposed workflow into a clear technical plan.</p></section></aside></div>
+<section class="project" id="project" aria-labelledby="project-title"><div><div class="eyebrow">What we're working toward</div><h2 id="project-title">Understanding through explanation.</h2></div><div><p>ExplainQuest is a proposed study tool for busy learners. Its central loop is simple: choose a topic, add reference notes, explain the material, review feedback, and try again. Saved attempts would help students revisit their learning over time.</p><p>The stack below comes from the project pitch and is subject to team confirmation.</p><div class="stack" aria-label="Proposed technology stack"><span>Next.js</span><span>TypeScript</span><span>Supabase / PostgreSQL</span><span>OpenAI Responses API</span></div></div></section>
+</main><footer><div class="wrap foot"><span>ExplainQuest development journal · Robert Dresner</span><a href="#top">Back to top ↑</a></div></footer>
 </body>
 </html>
